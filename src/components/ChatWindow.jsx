@@ -8,8 +8,11 @@ export default function ChatWindow({ messages, isLoading }) {
 
   // Auto-scroll to bottom on new messages
   useEffect(() => {
-    if (bottomRef.current) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth' });
+    if (containerRef.current) {
+      containerRef.current.scrollTo({
+        top: containerRef.current.scrollHeight,
+        behavior: 'smooth'
+      });
     }
   }, [messages, isLoading]);
 
